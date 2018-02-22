@@ -25,9 +25,52 @@
 			</div>
 
 			<div id = "contentHolder" class = "row justify-content-center">
-				<div id = "startButton" class = "btn ">
+
+				<div id="begginingInstructions" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<p> Press The Block To Begin...</p>
+				</div>
+
+				<div id = "startButton" class = "row btn ">
 					<img src = "http://www.mariowiki.com/images/thumb/0/02/Question_Block_NSMB.png/120px-Question_Block_NSMB.png">
 				</div>
+
+				<div id = "countdownDisplay" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h3> 20 </h3>
+				</div>
+
+				<div id = "questionContainer" class = "row justify-content-center">
+					<div class = "questionTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<p id="radioQuestion"> In what year was the Atari released? </p>
+					</div>
+
+					<div class = "form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						
+						<input class = "form-check-input" type = "radio" name="questionRadios" value="a">
+						<label id="radio1" class="form-check-label">
+							1968
+						</label>
+					</div>
+
+					<div class = "form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<input class = "form-check-input" type="radio" name="questionRadios" value="b">
+						<label id="radio2" class="form-check-label">
+							1972
+						</label>
+					</div>
+
+					<div class = "form-check col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<input class = "form-check-input" type="radio" name="questionRadios" value="c">
+						<label id="radio3" class="form-check-label">
+							1975
+						</label>
+					</div>
+
+					<div class = "submit col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<input type="submit" class="btn submitColor">
+					</div>
+
+				</div>
+
 			</div>
 		</div>
 	</body>

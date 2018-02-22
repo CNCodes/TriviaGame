@@ -1,3 +1,9 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(PressStart2P.ttf);
+    font-size: 12px;
+}
+
 body{
 	background-image: url('http://images5.fanpop.com/image/photos/26500000/Mario-Background-nintendo-26503062-1680-1050.jpg');
 	background-size: cover;
@@ -5,12 +11,32 @@ body{
 }
 
 h1{
-	color: #16161054;
+	color: #a2a2a2;
+}
+
+.submit {
+	margin-top: 15px;
+}
+
+.submitColor {
+	background-color: white;
+}
+
+#begginingInstructions {
+	color: white;
+	font-family: myFirstFont;
+	font-size: 12px;
 }
 
 #titleBanner {
+	font-family: myFirstFont;
+	color: white;
 	margin-bottom: 3%;
 	background-image: ;
+}
+
+#countdownDisplay {
+	font-family: myFirstFont;
 }
 
 
