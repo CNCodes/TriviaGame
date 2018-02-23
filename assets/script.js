@@ -31,7 +31,20 @@ radio2: "Donkey Kong",
 radio3: "Luigi",
 AnswerValue: "b",},
 
-{question: ""}
+{question: "Dig Dug, Galaga, and Pac-Man were all developed by",
+radio1: "Namco",
+radio2: "Sega",
+radio3: "Nintendo",
+AnswerValue: "a"},
+
+{question: "What is the highest selling game of all time?",
+radio1: "Super Mario 64",
+radio2: "Tetris",
+radio3: "Halo 3",
+AnswerValue: "b"},
+
+
+
 
 ];
 
@@ -71,7 +84,7 @@ function alterHtml() {
 	$('#questionContainer').show();
 	$('#begginingInstructions').hide();
 	$('#startButton').hide();
-	$('#contentHolder').css({"background-image":"url('http://68.media.tumblr.com/276ac633d947ba5c8bbebaa0bb6d4574/tumblr_n1xcz4UPBU1rrftcdo1_1280.gif')", "padding-top" : "5%", "padding-bottom" : "5%",});
+	$('#contentHolder').css({"background-image":"url('http://68.media.tumblr.com/276ac633d947ba5c8bbebaa0bb6d4574/tumblr_n1xcz4UPBU1rrftcdo1_1280.gif')"});
 	$('#radioQuestion').text(multipleChoiceQuestions[i].question);
 	$('#radio1').text(multipleChoiceQuestions[i].radio1);
 	$('#radio2').text(multipleChoiceQuestions[i].radio2);
