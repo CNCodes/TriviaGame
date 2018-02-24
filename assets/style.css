@@ -31,6 +31,19 @@ h1{
 	font-family: 'Roboto', sans-serif;
 	font-weight: bolder;
 }
+#winOrLoseTitle{
+	font-family: myFirstFont;
+}
+.loseColor{
+	color:#a92828;
+}
+.winColor{
+	color: #40c121;
+}
+#winOrLosePercent{
+	font-family: 'Roboto', sans-serif;
+	font-weight: bolder;
+}
 #begginingInstructions {
 	color: white;
 	font-family: myFirstFont;

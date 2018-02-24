@@ -12,9 +12,9 @@ radio3: '1975',
 AnswerValue: 'b',},
 
 {question : "Which Pokemon was the first to be designed?",
- radio1: "mew",
- radio2: "charizard",
- radio3: "rhyhorn",
+ radio1: "Mew",
+ radio2: "Charizard",
+ radio3: "Rhyhorn",
  AnswerValue: "c",
 },
 
@@ -51,28 +51,90 @@ AnswerValue: "b"},
 
 
 function nextQuestion(){
-	//This stops the timer
-	clearInterval(myTimer);
-	//this determines which checkbox was selected
-	var answerSelected = $("input[type='radio'][name='questionRadios']:checked").val();
-	//this unchecks the checkbox for the next round
-	$("input[type='radio'][name='questionRadios']:checked").prop('checked', false);
-	//determines if user selected correct answer and updates score
-	if(answerSelected == multipleChoiceQuestions[i].AnswerValue) {
-		score++;
-		console.log(score);
+
+	//This sets up end game display
+	if(i === multipleChoiceQuestions.length-1){
+
+		console.log(i);
+		console.log(multipleChoiceQuestions.length);
+
+		clearInterval(myTimer);
+
+		var answerSelected = $("input[type='radio'][name='questionRadios']:checked").val();
+		//this unchecks the checkbox for the next round
+		$("input[type='radio'][name='questionRadios']:checked").prop('checked', false);
+		//determines if user selected correct answer and updates score
+		if(answerSelected == multipleChoiceQuestions[i].AnswerValue) {
+			score++;
+			console.log(score);
+		}
+
+		var percent = (Math.floor((score/multipleChoiceQuestions.length)*100));
+
+		
+
+		if(percent >= 60) {
+			$('#audioPlayer').attr('src', 'assets/youWin.mp3');
+			$('#audioPlayer').removeAttr('loop');
+			$('#winOrLose').show();
+			$('#questionContainer').hide();
+			$('#countdownDisplay').hide();
+			$('#winOrLoseTitle').addClass('winColor');
+			$('#winOrLoseTitle').text("You've Passed!!");
+			$('#winOrLosePercent').text('You scored a ' + percent);
+
+			$('#restartButton').on('click', function(){
+				$('#winOrLoseTitle').removeClass('winColor');
+				i=0;
+				clearInterval(myTimer);
+				$('.submit').off();
+				startGame();
+			});
+
+		} else {
+			$('#audioPlayer').attr('src', 'assets/youLose.mp3');
+			$('#audioPlayer').removeAttr('loop');
+			$('#winOrLose').show();
+			$('#questionContainer').hide();
+			$('#countdownDisplay').hide();
+			$('#winOrLoseTitle').addClass('loseColor');
+			$('#winOrLoseTitle').text("You've Failed!!");
+			$('#winOrLosePercent').text('You scored a ' + percent);
+
+			$('#restartButton').on('click', function(){
+				$('#winOrLoseTitle').removeClass('loseColor');
+				i=0;
+				clearInterval(myTimer);
+				$('.submit').off();
+				startGame();
+			});
+
+		}
+
+	} else {
+		//This stops the timer
+		clearInterval(myTimer);
+		//this determines which checkbox was selected
+		var answerSelected = $("input[type='radio'][name='questionRadios']:checked").val();
+		//this unchecks the checkbox for the next round
+		$("input[type='radio'][name='questionRadios']:checked").prop('checked', false);
+		//determines if user selected correct answer and updates score
+		if(answerSelected == multipleChoiceQuestions[i].AnswerValue) {
+			score++;
+			console.log(score);
+		}
+		//increments the i value by 1 to select the next multiple choice question
+		i++;
+		//resets the countdown time (the extra 1 is so the page is updated at 20 secs)
+		countTime = 21;
+		//starts the timer
+		questionTimer();
+		//alters the html in the game to display the next question
+		$('#radioQuestion').text(multipleChoiceQuestions[i].question);
+		$('#radio1').text(multipleChoiceQuestions[i].radio1);
+		$('#radio2').text(multipleChoiceQuestions[i].radio2);
+		$('#radio3').text(multipleChoiceQuestions[i].radio3);
 	}
-	//increments the i value by 1 to select the next multiple choice question
-	i++;
-	//resets the countdown time (the extra 1 is so the page is updated at 20 secs)
-	countTime = 21;
-	//starts the timer
-	questionTimer();
-	//alters the html in the game to display the next question
-	$('#radioQuestion').text(multipleChoiceQuestions[i].question);
-	$('#radio1').text(multipleChoiceQuestions[i].radio1);
-	$('#radio2').text(multipleChoiceQuestions[i].radio2);
-	$('#radio3').text(multipleChoiceQuestions[i].radio3);
 
 
 
@@ -92,10 +154,14 @@ function alterHtml() {
 }
 	
 function startGame(){
+	i = 0;
+
+	score = 0;
 	//initialize countdown time
 	countTime = 20;
 	//call alertHtml function
 	alterHtml();
+	$('#winOrLose').hide();
 	//call changeMusic function
 	changeMusic();
 	//start timer
@@ -111,6 +177,7 @@ function startGame(){
 function changeMusic(){
 //sets quiz music
 $('#audioPlayer').attr('src', 'assets/countdownMusic.mp3');
+$('#audioPlayer').attr('loop', 'loop');
 }
 
 
@@ -130,7 +197,7 @@ function questionTimer() {
 
 
 $(document).ready(function(){
-
+$('#winOrLose').hide();
 $('#questionContainer').hide();
 $('#countdownDisplay').hide();
 $("#startButton").on("click", function(){

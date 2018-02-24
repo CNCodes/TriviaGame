@@ -7,6 +7,8 @@
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+		<link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+
 		<link rel="stylesheet" type="text/css" href="assets/style.css">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -26,6 +28,7 @@
 
 			<div id = "contentHolder" class = "row justify-content-center">
 
+
 				<div id="begginingInstructions" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<p> Press The Block To Begin...</p>
 				</div>
@@ -36,6 +39,21 @@
 
 				<div id = "countdownDisplay" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h3> 20 </h3>
+				</div>
+
+				<div id="winOrLose" class = "row">
+
+					<div  class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h1 id="winOrLoseTitle"></h1>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<p id="winOrLosePercent" ></p>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<p id="restartButton" class="btn submitColor">Try Again</p>
+					</div>
 				</div>
 
 				<div id = "questionContainer" class = "row justify-content-center">
